@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "../headers/main.h"
 
 
 static SDL_Renderer *renderer;

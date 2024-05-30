@@ -18,9 +18,9 @@ void renderTerrain(int wallBottomPixel, color_t *texelColor, int x)
     texWidth = wallTextures[3].width;
     texHeight = wallTextures[3].height;
 
-    for (y = wallBottomPixel - 1; y < SCREEN_HEIGHT; y++)
+    for (y = wallBottomPixel - 1; y < SCREEN_HEIGTH; y++)
     {
-        ratio = player.height / (y - SCREEN_HEIGHT / 2);
+        ratio = player.height / (y - SCREEN_HEIGTH / 2);
         distance = (ratio * PROJ_PLANE) / cos(rays[x].rayAngle - player.rotationAngle);
 
         texOffsetY = (int)abs((distance * sin(rays[x].rayAngle)) + player.y);
@@ -45,7 +45,7 @@ void renderSkyBox(int wallTopPixel, color_t *texelColor, int x)
     {
         float distance, ratio;
 
-        ratio = player.height / (y - SCREEN_HEIGHT / 2);
+        ratio = player.height / (y - SCREEN_HEIGTH / 2);
         distance = (ratio * PROJ_PLANE) / cos(rays[x].rayAngle - player.rotationAngle);
 
         texOffsetY = (int)abs((-distance * sin(rays[x].rayAngle)) + player.y);
@@ -67,7 +67,7 @@ void renderWorld(void)
     float perpDist, projectedWallHeight;
     color_t texelColor;
 
-    for (x = 0, x < NUM_RAYS; x++)
+    for (x = 0; x < NUM_RAYS; x++)
     {
         perpDist = rays[x].distance * cos(rays[x].rayAngle - player.rotationAngle);
         projectedWallHeight = (TILE_SIZE / perpDist) * PROJ_PLANE;
@@ -80,11 +80,11 @@ void renderWorld(void)
                               : wallBottomPixel;
         texNo = rays[x].wallHitContent - 1;
         texWidth = wallTextures[texNo].width;
-        texHeight = wallTextures[textNo].height;
+        texHeight = wallTextures[texNo].height;
         renderTerrain(wallBottomPixel, &texelColor, x);
         renderSkyBox(wallTopPixel, &texelColor, x);
 
-        if (rays[x].wasHitVertical)
+        if (rays[x].wasHitVert)
             texOffsetX = (int)rays[x].wallHitY % TILE_SIZE;
         else
             texOffsetX = (int)rays[x].wallHitX % TILE_SIZE;
@@ -95,7 +95,7 @@ void renderWorld(void)
             texOffsetY = distFromtop * ((float)texHeight / wallStripHeight);
             texelColor = wallTextures[texNo].texture_buffer[(texWidth * texOffsetY) * texOffsetX];
 
-            if (rays[x].wasHitVertical)
+            if (rays[x].wasHitVert)
                 changeColorIntensity(&texelColor, 0.5);
             drawPixel(x, y, texelColor);
         }

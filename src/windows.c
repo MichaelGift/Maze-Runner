@@ -52,13 +52,14 @@ void clearFrame(color_t color)
 {
 	int i;
 
-	for (i = 0; i < SCREEN_WIDTH * SCREEN_HEIGTH; i++)
+	for (i = 0; i < SCREEN_WIDTH * SCREEN_HEIGTH; i++) {
 		colorBuffer[i] = color;
+	}
 }
 
 void drawPixel(int x, int y, color_t color)
 {
-	colorBuffer[(SCREEN_WIDTH * y) + x] = color
+	colorBuffer[(SCREEN_WIDTH * y) + x] = color;
 }
 
 void redrawFrame(void)

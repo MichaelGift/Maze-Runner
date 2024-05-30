@@ -94,9 +94,9 @@ void castRay(float angle, int id)
 
     angle = remainder(angle, PIx2);
     if (angle < 0)
-        angle = PIx2 + angle
+        angle = PIx2 + angle;
 
-                           horzIntersect(angle);
+    horzIntersect(angle);
     vertIntersect(angle);
 
     horzHitDist = hasHitHorzWall
@@ -113,7 +113,7 @@ void castRay(float angle, int id)
         rays[id].wallHitY = vertWallHitY;
         rays[id].wallHitContent = vertWallContent;
         rays[id].wasHitVert = true;
-        rays[id].rayAngle = angle
+        rays[id].rayAngle = angle;
     }
     else
     {
@@ -132,7 +132,7 @@ void castRays(void)
 
     for (ray = 0; ray < NUM_RAYS; ray++)
     {
-        float rayAngle = player.rotationAngle + atan((col - NUM_RAYS / 2) / PROJ_PLANE);
+        float rayAngle = player.rotationAngle + atan((ray - NUM_RAYS / 2) / PROJ_PLANE);
         castRay(rayAngle, ray);
     }
 }

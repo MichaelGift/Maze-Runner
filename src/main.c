@@ -32,7 +32,7 @@ void updateGameState(void){
 	tickSinceLastFrame = SDL_GetTicks();
 
 	updatePlayerPosition(DeltaTime);
-	castRays()
+	castRays();
 }
 
 /**

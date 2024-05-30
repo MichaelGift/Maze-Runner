@@ -1,6 +1,6 @@
 #include "../headers/main.h"
 
-static const char *textureFiles[NUM_TEXTURES] = {
+static const char* textureFiles[NUM_TEXTURES] = {
     "./images/redbrick.png",
     "./images/purplestone.png",
     "./images/mossystone.png",
@@ -9,13 +9,12 @@ static const char *textureFiles[NUM_TEXTURES] = {
     "./images/bluestone.png",
     "./images/wood.png",
     "./images/eagle.png",
-}
+};
 
 /**
  * loadWallTextures - loads textures into positions
  */
-void
-loadTextures(void)
+void loadTextures(void)
 {
     int i;
 

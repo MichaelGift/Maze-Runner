@@ -3,8 +3,10 @@
 #include <SDL.h>
 #include <stdint.h>
 #include <math.h>
+#include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <cfloat>
 #include "upng.h"
 
 typedef uint32_t color_t;
@@ -26,8 +28,8 @@ typedef uint32_t color_t;
 #define FPS 30
 #define REFRESH_RATE (1000 / FPS )
 
-#define MAP_ROWS 13;
-#define MAP_COLS 20;
+#define MAP_ROWS 13
+#define MAP_COLS 20
 
 /* Game State */
 extern bool isGameRunning;
@@ -93,7 +95,7 @@ typedef struct texture
     upng_t *upngTexture;
 } texture_t;
 
-texture_t wallTextures[NUM_TEXTURES]
+texture_t wallTextures[NUM_TEXTURES];
 
 void loadTextures(void);
 void unloadTextures(void);
@@ -126,14 +128,14 @@ void castRays(void);
 void castRay(float, int);
 void horzIntersect(float);
 void vertIntersect(float);
-float calculateDistance(float, float, float, float)
+float calculateDistance(float, float, float, float);
 void renderPlayerFOV(void);
 
 
-void isRayFacingDown(float);
-void isRayFacingUp(float);
-void isRayFacingLeft(float);
-void isRayFacingRight(float);
+bool isRayFacingDown(float);
+bool isRayFacingUp(float);
+bool isRayFacingLeft(float);
+bool isRayFacingRight(float);
 
 
 /*Map handler*/

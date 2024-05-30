@@ -18,6 +18,9 @@
     <ClInclude Include="headers\main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="headers\upng.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\inputhandler.c">
@@ -30,6 +33,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\maphandler.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\raycasting.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rayhandler.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\texturehandler.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\upng.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\worldhandler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

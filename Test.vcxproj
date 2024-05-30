@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
-    <ClCompile Include="windows.c" />
+    <ClInclude Include="headers\main.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h" />
+    <ClCompile Include="src\inputhandler.c" />
+    <ClCompile Include="src\main.c" />
+    <ClCompile Include="src\playerhandler.c" />
+    <ClCompile Include="src\windows.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

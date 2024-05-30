@@ -10,9 +10,9 @@
 typedef uint32_t color_t;
 
 /* Constants */
-#define PI =  3.14159265
-#define SCREEN_WIDTH = 720
-#define SCREEN_HEIGTH = 480
+#define PI 3.14159265
+#define SCREEN_WIDTH 720
+#define SCREEN_HEIGTH 480
 
 #define FPS 30
 #define REFRESH_RATE (1000 / FPS )
@@ -43,7 +43,7 @@ typedef struct player {
     int walkDir;
     float rotationAngle;
     float walkSpeed;
-    float turnSpeed
+    float turnSpeed;
 } player_t;
 
 extern player_t player;

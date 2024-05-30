@@ -4,21 +4,7 @@ bool isGameRunning = false;
 player_t player;
 int tickSinceLastFrame;
 
-int main(void) {
-	isGameRunning = initializeWindow();
 
-	startGame();
-	while (isGameRunning)
-	{
-		handleInput();
-		updateGameState();
-		/* 
-		RenderGraphics(); 
-		*/
-	}
-	destroyGame();
-	return (0);
-}
 
 void startGame(void){
 	player.x = SCREEN_WIDTH / 2;
@@ -49,4 +35,20 @@ void updateGameState(void){
 	updatePlayerPosition(DeltaTime);
 
 	/**castAllRays()*/
+}
+
+int main(void) {
+	isGameRunning = initializeWindow();
+
+	startGame();
+	while (isGameRunning)
+	{
+		handleInput();
+		updateGameState();
+		/*
+		RenderGraphics();
+		*/
+	}
+//	destroyGame();
+	return (0);
 }

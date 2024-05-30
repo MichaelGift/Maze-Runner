@@ -1,20 +1,6 @@
 #include "../headers/main.h"
 
-/**
- * handleInput - process input from keyboard
-*/
-void handleInput(void){
-    SDL_Event event;
 
-    SDL_PollEvent(&event);
-
-    if (event.type == SDL_QUIT)
-        isGameRunning = false;
-    else if (event.type == SDL_KEYDOWN)
-        SDL_KEYDOWN_FUNC(event);
-    else if (event.type == SDL_KEYUP)
-        SDL_KEYUP_FUNC(event);
-}
 
 /**
  * SDL_KEYDOWN_FUNC - process input when a key is down. ie pressed
@@ -71,4 +57,20 @@ void SDL_KEYUP_FUNC(SDL_Event event){
 		player.turnDir = 0;
 	if (event.key.keysym.sym == SDLK_d)
 		player.turnDir = 0;
+}
+
+/**
+ * handleInput - process input from keyboard
+*/
+void handleInput(void) {
+    SDL_Event event;
+
+    SDL_PollEvent(&event);
+
+    if (event.type == SDL_QUIT)
+        isGameRunning = false;
+    else if (event.type == SDL_KEYDOWN)
+        SDL_KEYDOWN_FUNC(event);
+    else if (event.type == SDL_KEYUP)
+        SDL_KEYUP_FUNC(event);
 }

@@ -3,6 +3,7 @@
 
 static SDL_Renderer *renderer;
 static color_t *colorBuffer;
+static SDL_Texture *colorBufferTexture;
 static SDL_Window *window;
 
 
@@ -41,6 +42,8 @@ bool initializeWindow(void) {
 	}
 	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 
+	colorBuffer = malloc(sizeof(color_t) * SCREEN_WIDTH, SCREEN_HEIGTH);
 
+	colorBufferTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_STREAMING, SCREEN_WIDTH, SCREEN_HEIGTH);
 	return (true);
 }

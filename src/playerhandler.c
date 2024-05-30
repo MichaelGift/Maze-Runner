@@ -14,16 +14,19 @@ void updatePlayerPosition(float deltaTime)
     newXPos = player.x + cos(player.rotationAngle) * moveStep;
     newYPos = player.y + sin(player.rotationAngle) * moveStep;
 
-    /**Handle colision*/
+    if (!isCollisionDetected(newXPos, newYPos))
+    {
+        player.x = newXPos;
+        player.y = newYPos;
+    }
 }
 
 void renderPlayerOnMinimap(void)
 {
     drawRect(
-		player.x * MINIMAP_SCALE_FACTOR,
-		player.y * MINIMAP_SCALE_FACTOR,
-		player.width * MINIMAP_SCALE_FACTOR,
-		player.height * MINIMAP_SCALE_FACTOR,
-		0xFFFFFFFF
-	);
+        player.x * MINIMAP_SCALE_FACTOR,
+        player.y * MINIMAP_SCALE_FACTOR,
+        player.width * MINIMAP_SCALE_FACTOR,
+        player.height * MINIMAP_SCALE_FACTOR,
+        0xFFFFFFFF);
 }

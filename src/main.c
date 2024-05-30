@@ -16,8 +16,7 @@ void startGame(void){
 	player.turnDir = 0;
 	player.turnSpeed = 45 * (PI / 180);
 	player.rotationAngle = PI / 2;
-
-	/**PaintWalls()*/
+	loadTextures();
 }
 
 void updateGameState(void){
@@ -33,22 +32,41 @@ void updateGameState(void){
 	tickSinceLastFrame = SDL_GetTicks();
 
 	updatePlayerPosition(DeltaTime);
+	castRays()
+}
 
-	/**castAllRays()*/
+/**
+ * renderStuff - Let there be light and there was light.
+*/
+void renderStuff(){
+	clearFrame(0xFF000000);
+
+	renderWorld();
+
+	renderMinimap();
+	renderPlayerFOV();
+	renderPlayerOnMinimap();
+
+	redrawFrame();
+}
+
+void endGame(void)
+{
+	unloadTextures();
+	destroyWindow();
 }
 
 int main(void) {
-	isGameRunning = initializeWindow();
+	isGameRunning = createWindow();
 
 	startGame();
 	while (isGameRunning)
 	{
 		handleInput();
 		updateGameState();
-		/*
-		RenderGraphics();
-		*/
+		renderStuff();
 	}
-//	destroyGame();
+	/**Becuase why not*/
+	endGame();
 	return (0);
 }

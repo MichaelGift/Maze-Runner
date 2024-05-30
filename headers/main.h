@@ -151,5 +151,9 @@ void renderTerrain(int, color_t, int);
 void renderSkyBox(int, color_t, int);
 void changeColorIntensity(color_t, float);
 
+/*Draw*/
+void drawRect(int, int, int, int, color_t);
+void drawLine(int, int, int, int, color_t);
+
 #define MAIN_H
 #endif

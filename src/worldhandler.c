@@ -93,7 +93,7 @@ void renderWorld(void)
         {
             distFromtop = y + (wallStripHeight / 2) - (SCREEN_HEIGTH / 2);
             texOffsetY = distFromtop * ((float)texHeight / wallStripHeight);
-            texelColor = wallTextures[texNo].texture_buffer[(texWidth * texOffsetY) * texOffsetX];
+            texelColor = wallTextures[texNo].texture_buffer[(texWidth * texOffsetY) + texOffsetX];
 
             if (rays[x].wasHitVert)
                 changeColorIntensity(&texelColor, 0.5);

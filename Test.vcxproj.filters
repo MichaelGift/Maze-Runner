@@ -53,5 +53,34 @@
     <ClCompile Include="src\worldhandler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\draw.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\bluestone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\colorstone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\eagle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\graystone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\mossystone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\purplestone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\redbrick.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wood.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

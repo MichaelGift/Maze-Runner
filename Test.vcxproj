@@ -23,6 +23,7 @@
     <ClInclude Include="headers\upng.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\draw.c" />
     <ClCompile Include="src\inputhandler.c" />
     <ClCompile Include="src\main.c" />
     <ClCompile Include="src\maphandler.c" />
@@ -33,6 +34,16 @@
     <ClCompile Include="src\upng.c" />
     <ClCompile Include="src\windows.c" />
     <ClCompile Include="src\worldhandler.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\bluestone.png" />
+    <Image Include="assets\colorstone.png" />
+    <Image Include="assets\eagle.png" />
+    <Image Include="assets\graystone.png" />
+    <Image Include="assets\mossystone.png" />
+    <Image Include="assets\purplestone.png" />
+    <Image Include="assets\redbrick.png" />
+    <Image Include="assets\wood.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

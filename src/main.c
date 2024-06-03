@@ -56,6 +56,13 @@ void endGame(void)
 	destroyWindow();
 }
 
+
+/**
+ * The start of the program
+ * Create a game window, initializes game components
+ * Creates while loop that tracks input,refreshes game state and renders the game world.
+ * When the game window is destroyed the game ends.
+*/
 int main(void) {
 	isGameRunning = createWindow();
 

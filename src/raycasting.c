@@ -57,7 +57,7 @@ void vertIntersect(float angle)
     vertWallContent = 0;
 
     xIntercept = floor(player.x / TILE_SIZE) * TILE_SIZE;
-    yIntercept = isRayFacingRight(angle) ? TILE_SIZE : 0;
+    xIntercept += isRayFacingRight(angle) ? TILE_SIZE : 0;
     yIntercept = player.y + (xIntercept - player.x) * tan(angle);
 
     xStep = TILE_SIZE;

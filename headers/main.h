@@ -19,7 +19,7 @@ typedef uint32_t color_t;
 #define SCREEN_HEIGTH (MAP_ROWS * TILE_SIZE)
 #define NUM_TEXTURES 8
 
-#define MINIMAP_SCALE_FACTOR 0.25
+#define MINIMAP_SCALE_FACTOR 0.2
 #define NUM_RAYS SCREEN_WIDTH
 
 #define FOV_ANGLE (60 * (PI / 180))

@@ -1,4 +1,5 @@
 #ifndef MAIN_H
+#define MAIN_H
 
 #include <SDL.h>
 #include <stdint.h>
@@ -26,7 +27,7 @@ typedef uint32_t color_t;
 #define PROJ_PLANE ((SCREEN_WIDTH / 2) / tan(FOV_ANGLE / 2))
 
 #define FPS 30
-#define REFRESH_RATE (1000 / FPS )
+#define REFRESH_RATE (1000 / FPS)
 
 #define MAP_ROWS 13
 #define MAP_COLS 20
@@ -48,16 +49,17 @@ extern bool isGameRunning;
  * @walkSpeed: walk speed
  * @turnSpeed: Sensitivity when player looks around
 */
-typedef struct player {
-    float x;
-    float y;
-    float width;
-    float height;
-    int turnDir;
-    int walkDir;
-    float rotationAngle;
-    float walkSpeed;
-    float turnSpeed;
+typedef struct player
+{
+	float x;
+	float y;
+	float width;
+	float height;
+	int turnDir;
+	int walkDir;
+	float rotationAngle;
+	float walkSpeed;
+	float turnSpeed;
 } player_t;
 
 extern player_t player;
@@ -89,10 +91,10 @@ void handleInput(void);
 */
 typedef struct texture
 {
-    int width;
-    int height;
-    color_t *texture_buffer;
-    upng_t *upngTexture;
+	int width;
+	int height;
+	color_t *texture_buffer;
+	upng_t *upngTexture;
 } texture_t;
 
 texture_t wallTextures[NUM_TEXTURES];
@@ -155,5 +157,4 @@ void changeColorIntensity(color_t, float);
 void drawRect(int, int, int, int, color_t);
 void drawLine(int, int, int, int, color_t);
 
-#define MAIN_H
 #endif

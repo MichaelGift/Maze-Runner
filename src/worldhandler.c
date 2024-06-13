@@ -1,5 +1,16 @@
 #include "../headers/main.h"
 
+/**
+ * changeColorIntensity - Changes the intensity of a color by multiplying
+ * its RGB components by a factor.
+ * 
+ * The function modifies the intensity of the given color by
+ * scaling its RGB components.
+ * @param color: Pointer to the color to be modified.
+ * @param factor: Factor by which to scale the RGB components of the color.
+ * 
+ * Return: void
+ */
 void changeColorIntensity(color_t *color, float factor)
 {
     color_t a = (*color & 0xFF000000);
@@ -10,6 +21,18 @@ void changeColorIntensity(color_t *color, float factor)
     *color = a | (r & 0x00FF0000) | (g & 0x0000FF00) | (b & 0x000000FF);
 }
 
+/**
+ * renderTerrain - Renders a textured terrain or wall column on the screen.
+ * 
+ * The function calculates the texture coordinates based on the ray intersection
+ * with the wall and draws texel colors on the screen for a vertical column.
+ * 
+ * @param wallBottomPixel: Bottom pixel position of the wall/column on the screen.
+ * @param texelColor: Pointer to the texel color to be rendered.
+ * @param x: X-coordinate of the column on the screen.
+ * 
+ * Return: void
+ */
 void renderTerrain(int wallBottomPixel, color_t *texelColor, int x)
 {
     int y, texHeight, texWidth, texOffsetY, texOffsetX;
@@ -34,6 +57,18 @@ void renderTerrain(int wallBottomPixel, color_t *texelColor, int x)
     }
 }
 
+/**
+ * renderSkyBox - Renders a skybox or sky texture above a wall/column on the screen.
+ * 
+ * The function calculates the texture coordinates based on the ray intersection
+ * with the sky and draws texel colors on the screen for a vertical column.
+ * 
+ * @param wallTopPixel: Top pixel position of the wall/column on the screen.
+ * @param texelColor: Pointer to the texel color to be rendered.
+ * @param x: X-coordinate of the column on the screen.
+ * 
+ * Return: void
+ */
 void renderSkyBox(int wallTopPixel, color_t *texelColor, int x)
 {
     int y, texWidth, texHeight, texOffsetY, texOffsetX;
@@ -58,6 +93,16 @@ void renderSkyBox(int wallTopPixel, color_t *texelColor, int x)
         drawPixel(x, y, *texelColor);
     }
 }
+
+/**
+ * renderWorld - Renders the 3D world by casting rays and rendering textured walls.
+ * 
+ * The function calculates wall heights, determines textures, 
+ * and renders each vertical column of the screen with the 
+ * appropriate textures and colors.
+ * 
+ * Return: void
+ */
 
 void renderWorld(void)
 {

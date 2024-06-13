@@ -60,8 +60,10 @@ void SDL_KEYUP_FUNC(SDL_Event event){
 }
 
 /**
- * handleInput - process input from keyboard
-*/
+ * handleInput - Handles user input events such as quit, 
+ * key down, and key up.
+ * Return: void
+ */
 void handleInput(void) {
     SDL_Event event;
 

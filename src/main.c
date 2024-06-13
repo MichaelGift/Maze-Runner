@@ -5,7 +5,11 @@ player_t player;
 int tickSinceLastFrame;
 
 
-
+/**
+ * startGame - Initializes the game by setting up the player properties 
+ * and loading textures.
+ * Return: void
+ */
 void startGame(void){
 	player.x = SCREEN_WIDTH / 2;
 	player.y = SCREEN_HEIGTH / 2;
@@ -19,6 +23,11 @@ void startGame(void){
 	loadTextures();
 }
 
+/**
+ * updateGameState - Updates the game state by controlling the frame rate 
+ * and updating player position and ray casting.
+ * Return: void
+ */
 void updateGameState(void){
 	float DeltaTime;
 	int timeToWait = REFRESH_RATE - (SDL_GetTicks() - tickSinceLastFrame);
@@ -36,8 +45,10 @@ void updateGameState(void){
 }
 
 /**
- * renderStuff - Let there be light and there was light.
-*/
+ * renderStuff - Renders all the necessary elements on the screen, 
+ * including the world, minimap, and player.
+ * Return: void
+ */
 void renderStuff(){
 	clearFrame(0xFF000000);
 
@@ -58,11 +69,10 @@ void endGame(void)
 
 
 /**
- * The start of the program
- * Create a game window, initializes game components
- * Creates while loop that tracks input,refreshes game state and renders the game world.
- * When the game window is destroyed the game ends.
-*/
+ * main - The entry point of the game application. 
+ * Initializes the game, handles the game loop, and cleans up resources.
+ * return: int - Returns 0 upon successful completion.
+ */
 int main(void) {
 	isGameRunning = createWindow();
 

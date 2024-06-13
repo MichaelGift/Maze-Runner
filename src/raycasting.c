@@ -4,7 +4,12 @@ ray_t rays[NUM_RAYS];
 static bool hasHitHorzWall, hasHitVertWall;
 static float horzWallHitX, horzWallHitY, vertWallHitX, vertWallHitY;
 static int horzWallContent, vertWallContent;
-
+/**
+ * horzIntersect - Performs horizontal ray casting and determines 
+ * if the ray intersects with a horizontal wall.
+ * @param angle: The angle of the ray relative to the player's view.
+ * Return: void
+ */
 void horzIntersect(float angle)
 {
     float horzTouchX, horzTouchY, xIntercept, yIntercept, xStep, yStep;
@@ -46,6 +51,11 @@ void horzIntersect(float angle)
     }
 }
 
+/**
+ * vertIntersect - Performs vertical ray casting and determines if the ray intersects with a vertical wall.
+ * @param angle: The angle of the ray relative to the player's view.
+ * Return: void
+ */
 void vertIntersect(float angle)
 {
     float vertTouchX, vertTouchY;
@@ -57,7 +67,7 @@ void vertIntersect(float angle)
     vertWallContent = 0;
 
     xIntercept = floor(player.x / TILE_SIZE) * TILE_SIZE;
-    xIntercept += isRayFacingRight(angle) ? TILE_SIZE : 0;
+    yIntercept = isRayFacingRight(angle) ? TILE_SIZE : 0;
     yIntercept = player.y + (xIntercept - player.x) * tan(angle);
 
     xStep = TILE_SIZE;
@@ -88,6 +98,13 @@ void vertIntersect(float angle)
     }
 }
 
+
+/**
+ * castRay - Casts a ray at a specified angle and determines the distance to the nearest wall hit (horizontal or vertical).
+ * @param angle: The angle of the ray relative to the player's view.
+ * @param id: The identifier of the ray being cast.
+ * Return: void
+ */
 void castRay(float angle, int id)
 {
     float horzHitDist, vertHitDist;
@@ -126,6 +143,13 @@ void castRay(float angle, int id)
     }
 }
 
+
+/**
+ * castRays - Casts rays from the player's viewpoint across the projection plane.
+ * Each ray is cast at a specific angle relative to the player's rotation angle.
+ * The function iterates over all rays and calculates their angles before calling castRay.
+ * Return: void
+ */
 void castRays(void)
 {
     int ray;
@@ -137,6 +161,16 @@ void castRays(void)
     }
 }
 
+
+/**
+ * renderPlayerFOV - Renders the player's field of view (FOV) 
+ * by drawing lines from the player's position to each ray's wall h
+ * it position.
+ * 
+ * The function iterates over rays with a step of 50 to draw lines 
+ * representing the player's FOV on the minimap.
+ * return: void
+ */
 void renderPlayerFOV(void)
 {
     int i;

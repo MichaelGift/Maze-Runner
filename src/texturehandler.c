@@ -8,11 +8,17 @@ static const char* textureFiles[NUM_TEXTURES] = {
     "./assets/colorstone.png",
     "./assets/bluestone.png",
     "./assets/wood.png",
-    "./assets/nightsky.png"
+    "./assets/eagle.png",
 };
 
 /**
- * loadWallTextures - loads textures into positions
+ * loadTextures - Loads textures from files and stores them in the 
+ * wallTextures array.
+ * The function iterates through NUM_TEXTURES files, loads each 
+ * texture using libupng,
+ * and stores relevant information such as texture dimensions and 
+ * buffer in wallTextures array.
+ * Return: void
  */
 void loadTextures(void)
 {
@@ -39,6 +45,12 @@ void loadTextures(void)
     }
 }
 
+/**
+ * unloadTextures - Unloads textures stored in the wallTextures array
+ * by freeing memory allocated for each texture.
+ * The function iterates through NUM_TEXTURES textures and frees the upngTexture object associated with each.
+ * Return: void
+ */
 void unloadTextures(void)
 {
     int i;

@@ -5,6 +5,18 @@ static color_t *colorBuffer;
 static SDL_Texture *colorBufferTexture;
 static SDL_Window *window;
 
+/**
+ * createWindow - Initializes SDL, creates a window, renderer,
+ * and initializes necessary buffers.
+ * 
+ * The function initializes SDL, creates a borderless window that spans
+ * the entire screen, creates a renderer for rendering graphics, 
+ * sets blend mode for transparency, 
+ * allocates memory for color buffer, and creates a texture for color
+ * buffer rendering.
+ * 
+ * Return: true if initialization succeeds, false otherwise.
+ */
 bool createWindow(void)
 {
 
@@ -48,6 +60,13 @@ bool createWindow(void)
 	return (true);
 }
 
+/**
+ * clearFrame - Clears the color buffer with the specified color.
+ * The function fills the colorBuffer array with the given color.
+ * @param color: The color to fill the buffer with.
+ * 
+ * Return: void
+ */
 void clearFrame(color_t color)
 {
 	int i;
@@ -57,11 +76,32 @@ void clearFrame(color_t color)
 	}
 }
 
+/**
+ * drawPixel - Draws a pixel at the specified coordinates in the color
+ * buffer.
+ * 
+ * The function sets the color of a single pixel in the colorBuffer array.
+ * @param x: The x-coordinate of the pixel.
+ * @param y: The y-coordinate of the pixel.
+ * @param color: The color to set the pixel.
+ * 
+ * Return: void
+ */
 void drawPixel(int x, int y, color_t color)
 {
 	colorBuffer[(SCREEN_WIDTH * y) + x] = color;
 }
 
+
+/**
+ * redrawFrame - Redraws the frame by updating the texture and rendering to
+ * the screen.
+ * 
+ * The function updates the colorBufferTexture with the contents of
+ * colorBuffer, renders it using the renderer, and presents it on the screen.
+ * 
+ * Return: void
+ */
 void redrawFrame(void)
 {
 	SDL_UpdateTexture(
@@ -73,6 +113,14 @@ void redrawFrame(void)
 	SDL_RenderPresent(renderer);
 }
 
+/**
+ * destroyWindow - Destroys SDL window, renderer, and frees allocated memory.
+ * The function releases resources used by SDL, including colorBuffer 
+ * and colorBufferTexture,destroys the renderer and window, 
+ * and shuts down SDL subsystems.
+ * 
+ * Return: void
+ */
 void destroyWindow()
 {
 	free(colorBuffer);

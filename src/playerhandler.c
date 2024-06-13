@@ -1,8 +1,10 @@
 #include "../headers/main.h"
 
 /**
- * updatePlayerPosition - update player position based on inputs
- * @deltaTime: time since last frame
+ * updatePlayerPosition - Updates the player's position 
+ * based on current movement and rotation parameters.
+ * @param deltaTime: The time elapsed since the last frame update.
+ * Return: void
  */
 void updatePlayerPosition(float deltaTime)
 {
@@ -21,6 +23,12 @@ void updatePlayerPosition(float deltaTime)
     }
 }
 
+
+/**
+ * renderPlayerOnMinimap - Renders the player's position on the minimap.
+ * The player is represented as a rectangle on the minimap, scaled by MINIMAP_SCALE_FACTOR.
+ * Return: void
+ */
 void renderPlayerOnMinimap(void)
 {
     drawRect(

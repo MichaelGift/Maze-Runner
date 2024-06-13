@@ -1,5 +1,15 @@
 #include "../headers/main.h"
 
+/**
+ * drawRect - Draws a rectangle on the screen with the specified dimensions 
+ * and color.
+ * @param x: The x-coordinate of the top-left corner of the rectangle.
+ * @param y: The y-coordinate of the top-left corner of the rectangle.
+ * @param width: The width of the rectangle.
+ * @param height: The height of the rectangle.
+ * @param color: The color of the rectangle.
+ * Return: void
+ */
 void drawRect(int x, int y, int width, int height, color_t color)
 {
 	int i, j;
@@ -9,6 +19,17 @@ void drawRect(int x, int y, int width, int height, color_t color)
 			drawPixel(i, j, color);
 }
 
+
+/**
+ * drawLine - Draws a line on the screen between two points with the 
+ * specified color.
+ * @param x0: The x-coordinate of the starting point of the line.
+ * @param y0: The y-coordinate of the starting point of the line.
+ * @param x1: The x-coordinate of the ending point of the line.
+ * @param y1: The y-coordinate of the ending point of the line.
+ * @param color: The color of the line.
+ * Return: void
+ */
 void drawLine(int x0, int y0, int x1, int y1, color_t color)
 {
 	float xIncrement, yIncrement, currentX, currentY;
